@@ -23,6 +23,9 @@ public class Donor {
     @Column(name ="status")
     private AvailabilityStatus status;
 
+    public Donor(){
+        this.status=AvailabilityStatus.AVAILABLE;
+    }
 
     @OneToMany(mappedBy = "donor" ,cascade = CascadeType.ALL)
     private List<BloodDonations> donations;
