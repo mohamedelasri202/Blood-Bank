@@ -1,4 +1,4 @@
-package com.bloodbank.entity;
+package com.bloodbank.model;
 
 import jakarta.persistence.*;
 import java.util.Date;

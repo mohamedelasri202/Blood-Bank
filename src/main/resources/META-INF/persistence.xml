@@ -9,10 +9,10 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 
-        <class>com.bloodbank.entity.BloodDonations</class>
-        <class>com.bloodbank.entity.BloodTransfusion</class>
-        <class>com.bloodbank.entity.Donor</class>
-        <class>com.bloodbank.entity.Recipient</class>
+        <class>com.bloodbank.model.BloodDonations</class>
+        <class>com.bloodbank.model.BloodTransfusion</class>
+        <class>com.bloodbank.model.Donor</class>
+        <class>com.bloodbank.model.Recipient</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
