@@ -42,7 +42,7 @@
                     <a href="#" class="text-white/90 hover:text-white text-sm font-light tracking-wider transition-colors duration-300">Services</a>
                     <a href="#" class="text-white/90 hover:text-white text-sm font-light tracking-wider transition-colors duration-300">About</a>
                     <a href="#" class="text-white/90 hover:text-white text-sm font-light tracking-wider transition-colors duration-300">Contact</a>
-                    <a href="#" class="px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-light tracking-wider hover:bg-white/20 transition-all duration-300">
+                    <a href="views/receiverForm.jsp" class="px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-light tracking-wider hover:bg-white/20 transition-all duration-300">
                         Request Blood
                     </a>
                     <a href="views/donorForm.jsp" class="px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-light tracking-wider hover:bg-white/20 transition-all duration-300">
