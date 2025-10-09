@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,7 +45,7 @@
                     <a href="#" class="px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-light tracking-wider hover:bg-white/20 transition-all duration-300">
                         Request Blood
                     </a>
-                    <a href="#" class="px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-light tracking-wider hover:bg-white/20 transition-all duration-300">
+                    <a href="views/donorForm.jsp" class="px-6 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-light tracking-wider hover:bg-white/20 transition-all duration-300">
                         Donate Now
                     </a>
                 </div>
