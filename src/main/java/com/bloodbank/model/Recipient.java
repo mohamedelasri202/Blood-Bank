@@ -16,22 +16,33 @@ public class Recipient {
     private String Cin ;
     private String dateOfbirth;
     private String gender;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "urgency")
+    private UrgencyLevel urgency;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name ="blood_type")
+    private BloodType bloodType;
     @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL)
     private List<BloodTransfusion> transfusions;
 
 
-
-
-    public String getBloodtype() {
-        return bloodtype;
+    public BloodType getBloodType() {
+        return bloodType;
     }
 
-    private String bloodtype;
-
-    public void setBloodtype(String bloodtype) {
-        this.bloodtype = bloodtype;
+    public void setBloodType(BloodType bloodType) {
+        this.bloodType = bloodType;
     }
+
+    public void setTransfusions(List<BloodTransfusion> transfusions) {
+        this.transfusions = transfusions;
+    }
+
+    public List<BloodTransfusion> getTransfusions() {
+        return transfusions;
+    }
+
 
     public int getId() {
         return id;
