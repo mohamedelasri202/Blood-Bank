@@ -18,7 +18,7 @@ public class DonorServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
        throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/donorForm.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("donorForm");
         dispatcher.forward(req, resp);
 
     }
@@ -37,7 +37,7 @@ public class DonorServlet extends HttpServlet {
             BloodType bloodType = BloodType.valueOf(request.getParameter("bloodtype"));
 
 
-            Donor donor = new Donor(); // default status = AVAILABLE
+            Donor donor = new Donor();
             donor.setName(name);
             donor.setLastname(lastname);
             donor.setPhone(phone);
