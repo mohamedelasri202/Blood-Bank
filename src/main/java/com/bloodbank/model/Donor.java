@@ -15,8 +15,14 @@ public class Donor {
     private String Cin;
     private String dateofbirth;
     private double weith;
-    private String gender ;
-    private String bloodtype;
+    private String gender;
+    @Enumerated(EnumType.STRING)
+    @Column(name ="blood_type")
+    private BloodType bloodtype;
+    @Enumerated(EnumType.STRING)
+    @Column(name ="status")
+    private AvailabilityStatus status;
+
 
     @OneToMany(mappedBy = "donor" ,cascade = CascadeType.ALL)
     private List<BloodDonations> donations;
@@ -33,7 +39,7 @@ public class Donor {
         return id;
     }
 
-    public void setBloodtype(String bloodtype) {
+    public void setBloodtype(BloodType bloodtype) {
         this.bloodtype = bloodtype;
     }
 
@@ -57,8 +63,16 @@ public class Donor {
         return weith;
     }
 
-    public String getBloodtype() {
+    public BloodType getBloodtype() {
         return bloodtype;
+    }
+
+    public void setStatus(AvailabilityStatus status) {
+        this.status = status;
+    }
+
+    public AvailabilityStatus getStatus() {
+        return status;
     }
 
     public String getGender() {
