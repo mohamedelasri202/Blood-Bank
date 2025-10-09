@@ -78,13 +78,13 @@
                         <option value="">Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
-                        <option value="other">Other</option>
+
                     </select>
                 </div>
 
                 <div>
                     <label for="dob" class="block text-sm font-medium text-neutral-900 mb-2">Date of Birth</label>
-                    <input type="date" id="dob" name="dob" required
+                    <input type="date" id="dob" name="date_of_birth" required
                            class="w-full px-4 py-3 border border-neutral-300 rounded-md focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none transition-all">
                 </div>
 
@@ -101,14 +101,14 @@
                     <select id="bloodtype" name="bloodtype" required
                             class="w-full px-4 py-3 border border-neutral-300 rounded-md focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none transition-all bg-white">
                         <option value="">Select Blood Type</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
+                        <option value="A_positive">A+</option>
+                        <option value="A_negative">A-</option>
+                        <option value="B_positive">B+</option>
+                        <option value="B_negative">B-</option>
+                        <option value="AB_positive">AB+</option>
+                        <option value="AB_negative">AB-</option>
+                        <option value="O_positive">O+</option>
+                        <option value="O_negative">O-</option>
                     </select>
                 </div>
 
@@ -118,9 +118,9 @@
                     <select id="urgency" name="urgency" required
                             class="w-full px-4 py-3 border border-neutral-300 rounded-md focus:ring-2 focus:ring-red-900 focus:border-transparent outline-none transition-all bg-white">
                         <option value="">Select Urgency</option>
-                        <option value="critical">Critical</option>
-                        <option value="urgent">Urgent</option>
-                        <option value="normal">Normal</option>
+                        <option value="CRITICAL">Critical</option>
+                        <option value="URGENT">Urgent</option>
+                        <option value="NORMAL">Normal</option>
                     </select>
                 </div>
             </div>
