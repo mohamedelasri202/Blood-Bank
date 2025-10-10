@@ -65,5 +65,9 @@ public class DonorServlet extends HttpServlet {
         }
     }
 
+    public Donor alldonors(){
+
+    }
+
 
 }
