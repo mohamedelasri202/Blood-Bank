@@ -1,10 +1,59 @@
 package com.bloodbank.controller;
 
+import com.bloodbank.model.BloodType;
+import com.bloodbank.model.Recipient;
+import com.bloodbank.model.UrgencyLevel;
 import com.bloodbank.service.ReceiverService;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-public class ReceiverServlet {
+import java.io.IOException;
+
+public class ReceiverServlet extends HttpServlet {
 
     private ReceiverService receiverService = new ReceiverService();
+
+    protected void doGet(HttpServletRequest req , HttpServletResponse resp) throws ServletException, IOException{
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("receiverForm");
+        dispatcher.forward(req ,resp);
+    }
+    protected void doPost(HttpServletRequest req , HttpServletResponse resp) throws ServletException, IOException{
+        try {
+            String name = req.getParameter("name");
+            String lastname = req.getParameter("lastname");
+            String phone = req.getParameter("phone");
+            String cin = req.getParameter("cin");
+            String dateofbirth =req.getParameter("dateofbirth");
+            String gender = req.getParameter("gender");
+            BloodType bloodtype = BloodType.valueOf(req.getParameter("bloodtype"));
+            String emergencystatus =req.getParameter("emergencystatus");
+
+            Recipient recipient = new Recipient();
+            recipient.setName(name);
+            recipient.setLastname(lastname);
+            recipient.setPhone(phone);
+            recipient.setCin(cin);
+            recipient.setGender(gender);
+            recipient.setBloodType(bloodtype);
+            recipient.setDateOfbirth(dateofbirth);
+            recipient.setUrgency(UrgencyLevel.NORMAL);
+        receiverService.addRecipient( recipient);
+       resp.reset();
+        }catch(Exception e){
+            e.printStackTrace();
+            req.setAttribute("error","error");
+            req.getRequestDispatcher("receiverForm").forward(req,resp);
+        }
+
+
+
+
+    }
+
 
 
 }

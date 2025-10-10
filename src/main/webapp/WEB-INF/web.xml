@@ -13,4 +13,14 @@
         <servlet-name>donorServlet</servlet-name>
         <url-pattern>/addDonor</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>receiverservlet</servlet-name>
+        <servlet-class>com.bloodbank.controller.ReceiverServlet</servlet-class>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>receiverservlet</servlet-name>
+        <url-pattern>/addreceiver</url-pattern>
+    </servlet-mapping>
 </web-app>

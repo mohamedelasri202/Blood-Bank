@@ -21,7 +21,7 @@
 </head>
 <body class="antialiased">
 
-<div class="relative min-h-screen w-full bg-cover bg-center bg-no-repeat" style="background-image: url('/placeholder.svg?height=1080&width=1920');">
+<div class="relative min-h-screen w-full bg-cover bg-center bg-no-repeat" style="background-image: url('${pageContext.request.contextPath}/images/logo.webp?height=1080&width=1920');">
 
 
     <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>

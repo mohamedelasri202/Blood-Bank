@@ -23,6 +23,15 @@ public class Recipient {
     @Enumerated(EnumType.STRING)
     @Column(name ="blood_type")
     private BloodType bloodType;
+
+    public void setUrgency(UrgencyLevel urgency) {
+        this.urgency = urgency;
+    }
+
+    public UrgencyLevel getUrgency() {
+        return urgency;
+    }
+
     @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL)
     private List<BloodTransfusion> transfusions;
 

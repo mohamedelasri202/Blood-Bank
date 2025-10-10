@@ -47,7 +47,7 @@
         </div>
 
 
-        <form class="bg-white rounded-lg shadow-sm border border-neutral-200 p-8 md:p-12">
+        <form class="bg-white rounded-lg shadow-sm border border-neutral-200 p-8 md:p-12" action="${pageContext.request.contextPath}/addreceiver" method="post">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <div>
