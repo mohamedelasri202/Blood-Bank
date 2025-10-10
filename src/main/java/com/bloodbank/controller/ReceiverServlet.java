@@ -27,7 +27,7 @@ public class ReceiverServlet extends HttpServlet {
             String lastname = req.getParameter("lastname");
             String phone = req.getParameter("phone");
             String cin = req.getParameter("cin");
-            String dateofbirth =req.getParameter("dateofbirth");
+            String dateofbirth =req.getParameter("date_of_birth");
             String gender = req.getParameter("gender");
             BloodType bloodtype = BloodType.valueOf(req.getParameter("bloodtype"));
             String emergencystatus =req.getParameter("emergencystatus");
