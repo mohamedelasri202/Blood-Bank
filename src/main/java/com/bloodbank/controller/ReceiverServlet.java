@@ -1,5 +1,6 @@
 package com.bloodbank.controller;
 
+import com.bloodbank.model.AvailabilityStatusRecipient;
 import com.bloodbank.model.BloodType;
 import com.bloodbank.model.Recipient;
 import com.bloodbank.model.UrgencyLevel;
@@ -41,8 +42,9 @@ public class ReceiverServlet extends HttpServlet {
             recipient.setBloodType(bloodtype);
             recipient.setDateOfbirth(dateofbirth);
             recipient.setUrgency(UrgencyLevel.NORMAL);
+            recipient.setAvailability(AvailabilityStatusRecipient.ON_HOLD);
         receiverService.addRecipient( recipient);
-       resp.reset();
+       resp.sendRedirect(req.getContextPath() + "/views/receivers_list.jsp");
         }catch(Exception e){
             e.printStackTrace();
             req.setAttribute("error","error");

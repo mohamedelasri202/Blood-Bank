@@ -55,7 +55,8 @@ public class DonorServlet extends HttpServlet {
 
             donorservice.addDonor(donor);
 
-            response.sendRedirect(request.getContextPath() + "/donors/listDonors.jsp");
+            response.sendRedirect(request.getContextPath() + "/views/donor_lists.jsp");
+
 
         } catch (Exception e) {
             e.printStackTrace();

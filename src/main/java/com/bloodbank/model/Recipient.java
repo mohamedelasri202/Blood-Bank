@@ -20,9 +20,20 @@ public class Recipient {
     @Column(name = "urgency")
     private UrgencyLevel urgency;
 
+    public void setAvailability(AvailabilityStatusRecipient availability) {
+        this.availability = availability;
+    }
+
+    public AvailabilityStatusRecipient getAvailability() {
+        return availability;
+    }
+
     @Enumerated(EnumType.STRING)
     @Column(name ="blood_type")
     private BloodType bloodType;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Status")
+    private AvailabilityStatusRecipient availability;
 
     public void setUrgency(UrgencyLevel urgency) {
         this.urgency = urgency;
