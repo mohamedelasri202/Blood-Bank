@@ -8,6 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import com.bloodbank.util.JPAUtil;
 
+import java.util.List;
+
 public class DonorDAO {
 
     public void savedonor(Donor donor){
@@ -30,9 +32,20 @@ public class DonorDAO {
             }
         }
 
+
     }
 
 
+    public Donor findById(int id) {
+        EntityManager em = JPAUtil.getEntityManager();
+        Donor donor = null;
+        try {
+            donor = em.find(Donor.class, id);
+        } finally {
+            em.close();
+        }
+        return donor;
+    }
 
 
 

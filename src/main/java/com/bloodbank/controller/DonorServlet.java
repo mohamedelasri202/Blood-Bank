@@ -9,6 +9,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.util.List;
 
 import java.io.IOException;
@@ -17,14 +19,26 @@ public class DonorServlet extends HttpServlet {
     private DonorService donorservice = new DonorService();
 
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-       throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("donorForm");
-        dispatcher.forward(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            Integer donorId = (Integer) session.getAttribute("donorId");
+            if (donorId != null) {
+
+                Donor donor = donorservice.getDonor(donorId);
+                request.setAttribute("donor", donor);
+            }
+        }
+
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("donorForm");
+        dispatcher.forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+       throws ServletException, IOException {
+        HttpSession session = request.getSession();
 
         try {
 
@@ -54,7 +68,12 @@ public class DonorServlet extends HttpServlet {
                 donor.setStatus(AvailabilityStatus.valueOf(statusParam));
             }
 
-            donorservice.addDonor(donor);
+
+
+           Donor savedDonor= donorservice.addDonor(donor);
+            BloodType bloodtype = savedDonor.getBloodtype();
+
+            session.setAttribute("donorBloodtype", bloodtype);
 
             response.sendRedirect(request.getContextPath() + "/views/donor_lists.jsp");
 

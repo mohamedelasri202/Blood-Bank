@@ -1,3 +1,4 @@
+<%@ page import="com.bloodbank.model.BloodType" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html >
@@ -15,6 +16,41 @@
     </style>
 </head>
 <body class="font-sans bg-gradient-to-br from-slate-50 to-stone-100 min-h-screen">
+
+
+
+
+
+
+
+
+
+
+<%
+    BloodType bloodtype = (BloodType)session.getAttribute("donorBloodtype");
+%>
+
+
+
+
+<p>Donor ID from session: <%= bloodtype %></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -50,7 +86,8 @@
             </p>
             <div class="mt-8 inline-flex items-center gap-3 px-6 py-3 bg-rose-50 rounded-full border border-rose-200">
                 <span class="text-sm font-medium text-stone-700">Your Blood Type:</span>
-                <span class="px-4 py-1 bg-rose-600 text-white rounded-full text-sm font-semibold">A+</span>
+
+                <span class="px-4 py-1 bg-rose-600 text-white rounded-full text-sm font-semibold"><%=bloodtype%></span>
             </div>
         </div>
 

@@ -14,7 +14,12 @@ public class DonorService {
     }
 
 
-    public void addDonor(Donor donor) {
+    public Donor addDonor(Donor donor) {
         dao.savedonor(donor);
+        return donor;
+    }
+
+    public Donor getDonor(int id){
+        return dao.findById(id);
     }
 }
