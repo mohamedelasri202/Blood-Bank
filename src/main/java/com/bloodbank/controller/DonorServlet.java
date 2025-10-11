@@ -66,9 +66,7 @@ public class DonorServlet extends HttpServlet {
         }
     }
 
-    public list<Donor> getAllDonors(){
 
-    }
 
 
 }

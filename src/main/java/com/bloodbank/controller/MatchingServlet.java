@@ -17,7 +17,7 @@ import java.util.List;
 public class MatchingServlet extends HttpServlet {
     private final MatchingService service = new MatchingService();
 
-    public void doget(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
         String bloodTypeParam = req.getParameter("bloodType");
         BloodType recipientType = BloodType.valueOf(bloodTypeParam);
 
@@ -27,7 +27,7 @@ public class MatchingServlet extends HttpServlet {
         req.setAttribute("donors", compatibleDonors);
 
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("views/donorList.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("views/donor_lists.jsp");
         dispatcher.forward(req, res);
 
     }
