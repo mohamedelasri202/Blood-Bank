@@ -4,6 +4,7 @@ package com.bloodbank.controller;
 import com.bloodbank.model.BloodType;
 import com.bloodbank.model.CompatibilityBloodtype;
 import com.bloodbank.model.Donor;
+import com.bloodbank.model.Recipient;
 import com.bloodbank.service.MatchingService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -21,7 +22,7 @@ public class MatchingServlet extends HttpServlet {
         String bloodTypeParam = req.getParameter("bloodType");
         BloodType recipientType = BloodType.valueOf(bloodTypeParam);
 
-        List<Donor> compatibleDonors = service.getCompatibleDonors(recipientType);
+        List<Recipient> compatibleDonors = service.getCompatibleReceivers(recipientType);
 
 
         req.setAttribute("donors", compatibleDonors);

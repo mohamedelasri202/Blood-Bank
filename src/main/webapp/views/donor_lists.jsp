@@ -17,41 +17,10 @@
 </head>
 <body class="font-sans bg-gradient-to-br from-slate-50 to-stone-100 min-h-screen">
 
-
-
-
-
-
-
-
-
-
+<%--the blood dype --%>
 <%
     BloodType bloodtype = (BloodType)session.getAttribute("donorBloodtype");
 %>
-
-
-
-
-<p>Donor ID from session: <%= bloodtype %></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
