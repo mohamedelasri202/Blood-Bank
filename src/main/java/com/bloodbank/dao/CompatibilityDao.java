@@ -1,11 +1,8 @@
 package com.bloodbank.dao;
 
-import com.bloodbank.model.BloodType;
-import com.bloodbank.model.Donor;
 import com.bloodbank.model.Recipient;
 import com.bloodbank.util.JPAUtil;
 import jakarta.persistence.EntityManager;
-
 import java.util.List;
 
 public class CompatibilityDao {
@@ -13,7 +10,7 @@ public class CompatibilityDao {
     public List<Recipient> getAllReceivers() {
         EntityManager em = JPAUtil.getEntityManager();
         try {
-            return em.createQuery("SELECT R FROM Recipient R", Recipient.class)
+            return em.createQuery("SELECT r FROM Recipient  r", Recipient.class)
                     .getResultList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -22,5 +19,4 @@ public class CompatibilityDao {
             em.close();
         }
     }
-
 }

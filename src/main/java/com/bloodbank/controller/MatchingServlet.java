@@ -16,27 +16,31 @@ import java.util.List;
 public class MatchingServlet extends HttpServlet {
     private final MatchingService service = new MatchingService();
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res)
-            throws ServletException, IOException {
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
-        if (session == null || session.getAttribute("donorBloodType") == null) {
-            res.sendRedirect(req.getContextPath() + "/views/error.jsp");
+        if (session == null) {
+            res.sendRedirect(req.getContextPath() + "/donorForm");
+            return;
+        }
+
+        BloodType donorBloodType = (BloodType) session.getAttribute("donorBloodtype");
+        if (donorBloodType == null) {
+            res.sendRedirect(req.getContextPath() + "/donorForm");
             return;
         }
 
 
-        BloodType donorType = (BloodType) session.getAttribute("donorBloodType");
+        List<Recipient> compatibleReceivers = new MatchingService().getCompatibleReceivers(donorBloodType);
 
 
-        List<Recipient> compatibleRecipients = service.getCompatibleRecipients(donorType);
+        req.setAttribute("receivers", compatibleReceivers);
 
 
-        req.setAttribute("recipients", compatibleRecipients);
-
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/views/recipient_list.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/views/donor_lists.jsp");
         dispatcher.forward(req, res);
     }
+
+
 }

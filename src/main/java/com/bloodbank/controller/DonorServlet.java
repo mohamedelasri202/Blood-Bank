@@ -75,7 +75,7 @@ public class DonorServlet extends HttpServlet {
 
             session.setAttribute("donorBloodtype", bloodtype);
 
-            response.sendRedirect(request.getContextPath() + "/views/donor_lists.jsp");
+            response.sendRedirect(request.getContextPath() + "/matching");
 
 
         } catch (Exception e) {

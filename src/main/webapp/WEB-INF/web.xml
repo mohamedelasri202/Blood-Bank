@@ -23,4 +23,15 @@
         <servlet-name>receiverservlet</servlet-name>
         <url-pattern>/addreceiver</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MatchingServlet</servlet-name>
+        <servlet-class>com.bloodbank.controller.MatchingServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MatchingServlet</servlet-name>
+        <url-pattern>/matching</url-pattern>
+    </servlet-mapping>
+
 </web-app>

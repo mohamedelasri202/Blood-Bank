@@ -1,6 +1,8 @@
 <%@ page import="com.bloodbank.model.BloodType" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html >
 <head>
     <meta charset="UTF-8">
@@ -21,6 +23,37 @@
 <%
     BloodType bloodtype = (BloodType)session.getAttribute("donorBloodtype");
 %>
+
+
+<h2>List of Compatible Receivers</h2>
+
+<c:if test="${empty receivers}">
+    <p>No compatible receivers found.</p>
+</c:if>
+
+<c:if test="${not empty receivers}">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Blood Type</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="r" items="${receivers}">
+            <tr>
+                <td>${r.id}</td>
+                <td>${r.name} ${r.lastname}</td>
+                <td>${r.bloodType}</td>
+                <td>${r.availability}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</c:if>
+
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">

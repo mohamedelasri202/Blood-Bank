@@ -10,12 +10,11 @@ import java.util.List;
 public class MatchingService {
     private final CompatibilityDao dao = new CompatibilityDao();
 
-    public List<Recipient> getCompatibleRecipients(BloodType donorType) {
+    public List<Recipient> getCompatibleReceivers(BloodType donorType) {
         List<Recipient> recipients = dao.getAllReceivers();
-
-
         return recipients.stream()
                 .filter(r -> CompatibilityBloodtype.isCompatible(donorType, r.getBloodType()))
                 .toList();
     }
+
 }

@@ -33,6 +33,7 @@ public class Recipient {
     private BloodType bloodType;
     @Enumerated(EnumType.STRING)
     @Column(name = "Status")
+
     private AvailabilityStatusRecipient availability;
 
     public void setUrgency(UrgencyLevel urgency) {
@@ -119,4 +120,5 @@ public class Recipient {
     public String getGender() {
         return gender;
     }
+
 }
