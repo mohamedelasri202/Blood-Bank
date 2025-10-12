@@ -134,9 +134,14 @@
                                     </button>
                                 </c:when>
                                 <c:otherwise>
-                                    <button class="w-full py-3 bg-rose-600 text-white rounded-full hover:bg-rose-700 transition-all font-medium tracking-wide shadow-md hover:shadow-lg">
-                                        Donate Now
-                                    </button>
+                                    <form action="/donate" method="post">
+                                        <input type="hidden" name="donor_id" value="${donor.id}">
+                                        <input type="hidden" name="receiver_id" value="${r.getId}">
+                                        <button  type="submit" class="w-full py-3 bg-rose-600 text-white rounded-full hover:bg-rose-700 transition-all font-medium tracking-wide shadow-md hover:shadow-lg">
+                                            Donate Now
+                                        </button>
+                                    </form>
+
                                 </c:otherwise>
                             </c:choose>
                         </div>

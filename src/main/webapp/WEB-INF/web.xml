@@ -33,5 +33,13 @@
         <servlet-name>MatchingServlet</servlet-name>
         <url-pattern>/matching</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Donations</servlet-name>
+        <servlet-class>com.bloodbank.controller.DonationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Donations</servlet-name>
+        <url-pattern>/donate</url-pattern>
+    </servlet-mapping>
 
 </web-app>
