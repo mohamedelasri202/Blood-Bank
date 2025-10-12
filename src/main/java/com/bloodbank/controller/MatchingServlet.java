@@ -1,9 +1,6 @@
 package com.bloodbank.controller;
 
-
 import com.bloodbank.model.BloodType;
-import com.bloodbank.model.CompatibilityBloodtype;
-import com.bloodbank.model.Donor;
 import com.bloodbank.model.Recipient;
 import com.bloodbank.service.MatchingService;
 import jakarta.servlet.RequestDispatcher;
@@ -11,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,19 +16,27 @@ import java.util.List;
 public class MatchingServlet extends HttpServlet {
     private final MatchingService service = new MatchingService();
 
-    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-        String bloodTypeParam = req.getParameter("bloodType");
-        BloodType recipientType = BloodType.valueOf(bloodTypeParam);
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
 
-        List<Recipient> compatibleDonors = service.getCompatibleReceivers(recipientType);
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("donorBloodType") == null) {
+            res.sendRedirect(req.getContextPath() + "/views/error.jsp");
+            return;
+        }
 
 
-        req.setAttribute("donors", compatibleDonors);
+        BloodType donorType = (BloodType) session.getAttribute("donorBloodType");
 
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("views/donor_lists.jsp");
+        List<Recipient> compatibleRecipients = service.getCompatibleRecipients(donorType);
+
+
+        req.setAttribute("recipients", compatibleRecipients);
+
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/views/recipient_list.jsp");
         dispatcher.forward(req, res);
-
     }
-
 }
