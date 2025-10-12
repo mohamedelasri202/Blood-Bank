@@ -15,6 +15,11 @@ public class BloodDonations {
     @ManyToOne
     @JoinColumn(name = "donor_id")
     private Donor donor;
+    @ManyToOne
+    @JoinColumn
+    private  Recipient recipient;
+
+
 
     private double quantity;
     private Date dateOfDonation;
@@ -23,8 +28,16 @@ public class BloodDonations {
         return id;
     }
 
+    public void setRecipient(Recipient recipient) {
+        this.recipient = recipient;
+    }
+
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Recipient getRecipient() {
+        return recipient;
     }
 
     public Donor getDonor() {
@@ -36,10 +49,12 @@ public class BloodDonations {
     }
 
     public Date getDateOfDonation() {
+
         return dateOfDonation;
     }
 
     public void setDonor(Donor donor) {
+
         this.donor = donor;
     }
 

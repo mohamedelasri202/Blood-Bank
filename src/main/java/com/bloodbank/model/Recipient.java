@@ -1,69 +1,43 @@
 package com.bloodbank.model;
 
-
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
 public class Recipient {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name ;
+
+    private String name;
     private String lastname;
     private String phone;
-    private String Cin ;
-    private String dateOfbirth;
+    private String cin;
+    private String dateOfBirth;
     private String gender;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "urgency")
     private UrgencyLevel urgency;
 
-    public void setAvailability(AvailabilityStatusRecipient availability) {
-        this.availability = availability;
-    }
-
-    public AvailabilityStatusRecipient getAvailability() {
-        return availability;
-    }
-
     @Enumerated(EnumType.STRING)
-    @Column(name ="blood_type")
+    @Column(name = "blood_type")
     private BloodType bloodType;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "Status")
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private AvailabilityStatusRecipient availability;
 
-    public void setUrgency(UrgencyLevel urgency) {
-        this.urgency = urgency;
-    }
+    // ✅ One recipient can receive many donations
+    @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BloodDonations> donations;
 
-    public UrgencyLevel getUrgency() {
-        return urgency;
-    }
-
-    @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL)
+    // ✅ One recipient can have multiple transfusions
+    @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BloodTransfusion> transfusions;
 
-
-    public BloodType getBloodType() {
-        return bloodType;
-    }
-
-    public void setBloodType(BloodType bloodType) {
-        this.bloodType = bloodType;
-    }
-
-    public void setTransfusions(List<BloodTransfusion> transfusions) {
-        this.transfusions = transfusions;
-    }
-
-    public List<BloodTransfusion> getTransfusions() {
-        return transfusions;
-    }
-
+    // ---------- Getters and Setters ----------
 
     public int getId() {
         return id;
@@ -73,52 +47,91 @@ public class Recipient {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public void setCin(String cin) {
-        Cin = cin;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setDateOfbirth(String dateOfbirth) {
-        this.dateOfbirth = dateOfbirth;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLastname() {
         return lastname;
     }
 
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
     public String getPhone() {
         return phone;
     }
 
-    public String getCin() {
-        return Cin;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getDateOfbirth() {
-        return dateOfbirth;
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
+    }
+
+    public String c() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getGender() {
         return gender;
     }
 
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public UrgencyLevel getUrgency() {
+        return urgency;
+    }
+
+    public void setUrgency(UrgencyLevel urgency) {
+        this.urgency = urgency;
+    }
+
+    public BloodType getBloodType() {
+        return bloodType;
+    }
+
+    public void setBloodType(BloodType bloodType) {
+        this.bloodType = bloodType;
+    }
+
+    public AvailabilityStatusRecipient getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(AvailabilityStatusRecipient availability) {
+        this.availability = availability;
+    }
+
+    public List<BloodDonations> getDonations() {
+        return donations;
+    }
+
+    public void setDonations(List<BloodDonations> donations) {
+        this.donations = donations;
+    }
+
+    public List<BloodTransfusion> getTransfusions() {
+        return transfusions;
+    }
+
+    public void setTransfusions(List<BloodTransfusion> transfusions) {
+        this.transfusions = transfusions;
+    }
 }

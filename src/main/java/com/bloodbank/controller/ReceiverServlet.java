@@ -40,7 +40,7 @@ public class ReceiverServlet extends HttpServlet {
             recipient.setCin(cin);
             recipient.setGender(gender);
             recipient.setBloodType(bloodtype);
-            recipient.setDateOfbirth(dateofbirth);
+            recipient.setDateOfBirth(dateofbirth);
             recipient.setUrgency(UrgencyLevel.NORMAL);
             recipient.setAvailability(AvailabilityStatusRecipient.ON_HOLD);
         receiverService.addRecipient( recipient);
