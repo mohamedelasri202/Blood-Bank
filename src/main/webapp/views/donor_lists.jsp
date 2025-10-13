@@ -1,3 +1,4 @@
+
 <%@ page import="com.bloodbank.model.BloodType" %>
 <%@ page import="com.bloodbank.model.AvailabilityStatusRecipient" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -22,7 +23,11 @@
 <%-- Get donor blood type from session --%>
 <%
     BloodType bloodtype = (BloodType)session.getAttribute("donorBloodtype");
+
 %>
+
+
+
 
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -134,9 +139,9 @@
                                     </button>
                                 </c:when>
                                 <c:otherwise>
-                                    <form action="/donate" method="post">
-                                        <input type="hidden" name="donor_id" value="${donor.id}">
-                                        <input type="hidden" name="receiver_id" value="${r.getId}">
+                                    <form action="${pageContext.request.contextPath}/donate" method="post">
+                                        <input type="hidden" name="donor_id" value="${donorId}">
+                                        <input type="hidden" name="receiver_id" value="${r.id}">
                                         <button  type="submit" class="w-full py-3 bg-rose-600 text-white rounded-full hover:bg-rose-700 transition-all font-medium tracking-wide shadow-md hover:shadow-lg">
                                             Donate Now
                                         </button>

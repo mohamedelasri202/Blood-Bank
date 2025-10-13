@@ -17,31 +17,38 @@ public class MatchingServlet extends HttpServlet {
     private final MatchingService service = new MatchingService();
 
 
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+
         HttpSession session = req.getSession(false);
         if (session == null) {
             res.sendRedirect(req.getContextPath() + "/donorForm");
             return;
         }
 
+
+        Integer donorId = (Integer) session.getAttribute("donorId");
         BloodType donorBloodType = (BloodType) session.getAttribute("donorBloodtype");
-        if (donorBloodType == null) {
+
+
+        if (donorId == null || donorBloodType == null) {
             res.sendRedirect(req.getContextPath() + "/donorForm");
             return;
         }
 
 
-        List<Recipient> compatibleReceivers = new MatchingService().getCompatibleReceivers(donorBloodType);
+        List<Recipient> compatibleReceivers = service.getCompatibleReceivers(donorBloodType);
 
 
+        req.setAttribute("donorId", donorId);
         req.setAttribute("receivers", compatibleReceivers);
 
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/views/donor_lists.jsp");
         dispatcher.forward(req, res);
     }
-
 
 
 

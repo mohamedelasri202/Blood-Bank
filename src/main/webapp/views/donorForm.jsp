@@ -114,7 +114,7 @@
                         <option value="AB_positive">AB+</option>
                         <option value="AB_negative">AB-</option>
                         <option value="O_positive">O+</option>
-                        <option value="O_negative-">O-</option>
+                        <option value="O_negative">O-</option>
                     </select>
                 </div>
             </div>
