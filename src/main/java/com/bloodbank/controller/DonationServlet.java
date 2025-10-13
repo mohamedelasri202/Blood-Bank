@@ -12,19 +12,26 @@ import java.io.IOException;
 
 public class DonationServlet extends HttpServlet {
 
-   public  void  doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-       try {
-           Integer donorId = Integer.parseInt(request.getParameter("donorId"));
-           Recipient recipientId = Integer.parseInt(request.getParameter("recipientId"));
-           DonationService donationService = new DonationService();
+        try {
+            int donorId = Integer.parseInt(request.getParameter("donor_id"));
+            int recipientId = Integer.parseInt(request.getParameter("receiver_id"));
 
-           donationService.addDonation(donorId ,recipientId);
+            // Create the service
+            DonationService donationService = new DonationService();
 
 
+            donationService.addDonation(donorId, recipientId);
 
-       }catch (NumberFormatException e){
+            // Redirect or show success message
+            response.sendRedirect("success.jsp");
 
-       }
-   }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid donor or recipient ID");
+        }
+    }
 }

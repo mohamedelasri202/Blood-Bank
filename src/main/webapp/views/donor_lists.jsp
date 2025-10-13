@@ -139,6 +139,8 @@
                                     </button>
                                 </c:when>
                                 <c:otherwise>
+
+
                                     <form action="${pageContext.request.contextPath}/donate" method="post">
                                         <input type="hidden" name="donor_id" value="${donorId}">
                                         <input type="hidden" name="receiver_id" value="${r.id}">
