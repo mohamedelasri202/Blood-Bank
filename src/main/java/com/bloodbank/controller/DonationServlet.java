@@ -27,7 +27,7 @@ public class DonationServlet extends HttpServlet {
             donationService.addDonation(donorId, recipientId);
 
             // Redirect or show success message
-            response.sendRedirect("success.jsp");
+            response.sendRedirect("views/listDonors.jsp");
 
         } catch (NumberFormatException e) {
             e.printStackTrace();
