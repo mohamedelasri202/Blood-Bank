@@ -29,14 +29,11 @@ public class DonationDao {
         }
 
     }
-
-
-
-    public List<Object[]> getAllDonations() {
+    public List<Object[]> getAllDonationDetails() {
         EntityManager em = JPAUtil.getEntityManager();
         try {
             TypedQuery<Object[]> query = em.createQuery(
-                    "SELECT d, r.name, r.lastname, r.bloodType " +
+                    "SELECT d, r, bd " +
                             "FROM BloodDonations bd " +
                             "JOIN bd.donor d " +
                             "JOIN bd.recipient r",
@@ -47,5 +44,8 @@ public class DonationDao {
             em.close();
         }
     }
+
+
+
 
 }

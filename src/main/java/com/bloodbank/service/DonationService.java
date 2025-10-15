@@ -36,7 +36,9 @@ public class DonationService {
     }
 
     public List<Object[]> getAllDonations() {
-       return  donationDao.getAllDonations();
+       return  donationDao.getAllDonationDetails();
 
     }
+
+
 }

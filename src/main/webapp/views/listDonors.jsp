@@ -16,16 +16,11 @@
 </head>
 <body class="font-sans bg-neutral-50 min-h-screen">
 
-
-
-
-
-
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
             <div class="flex items-center gap-3">
-                <img src="/placeholder.svg?height=50&width=50" alt="LifeStream Logo" class="h-12 w-12 rounded-full object-cover border-2 border-neutral-300">
+                <img src="${pageContext.request.contextPath}/images/logo.webp?height=50&width=50" alt="LifeStream Logo" class="h-12 w-12 rounded-full object-cover border-2 border-neutral-300">
                 <span class="text-2xl font-serif font-semibold text-neutral-900">LifeStream</span>
             </div>
             <div class="hidden md:flex items-center gap-8">
@@ -42,13 +37,12 @@
 Main Content
 <main class="pt-32 pb-20 px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
-        Header
+
         <div class="mb-12">
             <h1 class="text-5xl md:text-6xl font-serif font-light text-neutral-900 mb-4">Donors Registry</h1>
             <p class="text-lg text-neutral-600 font-light max-w-2xl">Manage and view all registered blood donors</p>
         </div>
 
-        Table Container
         <div class="bg-white rounded-lg shadow-sm border border-neutral-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full">
@@ -62,7 +56,7 @@ Main Content
                         <th class="px-6 py-4 text-left text-sm font-semibold">Weight (kg)</th>
                         <th class="px-6 py-4 text-left text-sm font-semibold">CIN</th>
                         <th class="px-6 py-4 text-left text-sm font-semibold">Associated Receivers</th>
-                        <th class="px-6 py-4 text-left text-sm font-semibold">Urgency Level</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold">Blood Type</th>
                         <th class="px-6 py-4 text-center text-sm font-semibold">Actions</th>
                     </tr>
                     </thead>
@@ -70,32 +64,28 @@ Main Content
                     <c:forEach var="row" items="${donations}">
                         <tr class="hover:bg-neutral-50 transition-colors">
                             <!-- Donor info -->
-                            <td class="px-6 py-4 text-sm text-neutral-900"><c:out value="${row[0].name}"/></td>
-                            <td class="px-6 py-4 text-sm text-neutral-900"><c:out value="${row[0].lastname}"/></td>
-                            <td class="px-6 py-4 text-sm text-neutral-600"><c:out value="${row[0].phone}"/></td>
-                            <td class="px-6 py-4 text-sm text-neutral-600"><c:out value="${row[0].gender}"/></td>
-                            <td class="px-6 py-4">
-                         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                           <c:out value="${row[0].bloodtype}"/>
-                            </span>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-neutral-600"><c:out value="${row[0].weith}"/></td>
-                            <td class="px-6 py-4 text-sm text-neutral-600"><c:out value="${row[0].cin}"/></td>
-
-                            <!-- Associated Recipient info -->
-                            <td class="px-6 py-4 text-sm text-neutral-900">
-                                <c:out value="${row[1]} ${row[2]}"/>
-                            </td>
-
-                            <!-- Recipient blood type instead of urgency -->
-                            <td class="px-6 py-4">
+                            <td><c:out value="${row[0].name}"/></td>
+                            <td><c:out value="${row[0].lastname}"/></td>
+                            <td><c:out value="${row[0].phone}"/></td>
+                            <td><c:out value="${row[0].gender}"/></td>
+                            <td>
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                <c:out value="${row[3]}"/>
+                <c:out value="${row[0].bloodtype}"/>
+            </span>
+                            </td>
+                            <td><c:out value="${row[0].weith}"/></td>
+                            <td><c:out value="${row[0].cin}"/></td>
+
+                            <!-- Recipient info -->
+                            <td><c:out value="${row[1].name} ${row[1].lastname}"/></td>
+                            <td>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                <c:out value="${row[1].bloodType}"/>
             </span>
                             </td>
 
                             <!-- Actions -->
-                            <td class="px-6 py-4">
+                            <td>
                                 <div class="flex items-center justify-center gap-2">
                                     <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
                                     <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">Edit</button>
@@ -104,6 +94,7 @@ Main Content
                             </td>
                         </tr>
                     </c:forEach>
+
                     </tbody>
 
                 </table>

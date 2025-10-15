@@ -22,6 +22,7 @@ public class ReceiverServlet extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("receiverForm");
         dispatcher.forward(req ,resp);
     }
+
     protected void doPost(HttpServletRequest req , HttpServletResponse resp) throws ServletException, IOException{
         try {
             String name = req.getParameter("name");
@@ -44,7 +45,7 @@ public class ReceiverServlet extends HttpServlet {
             recipient.setUrgency(UrgencyLevel.NORMAL);
             recipient.setAvailability(AvailabilityStatusRecipient.ON_HOLD);
         receiverService.addRecipient( recipient);
-       resp.sendRedirect(req.getContextPath() + "/views/receivers_list.jsp");
+       resp.sendRedirect(req.getContextPath() + "/donation?view=receivers");
         }catch(Exception e){
             e.printStackTrace();
             req.setAttribute("error","error");
