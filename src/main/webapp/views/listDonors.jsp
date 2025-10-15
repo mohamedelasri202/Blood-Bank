@@ -15,7 +15,12 @@
     </style>
 </head>
 <body class="font-sans bg-neutral-50 min-h-screen">
-Navigation
+
+
+
+
+
+
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
@@ -62,99 +67,45 @@ Main Content
                     </tr>
                     </thead>
                     <tbody class="divide-y divide-neutral-200">
-                    Sample Row 1
-                    <tr class="hover:bg-neutral-50 transition-colors">
-                        <td class="px-6 py-4 text-sm text-neutral-900">Ahmed</td>
-                        <td class="px-6 py-4 text-sm text-neutral-900">Benali</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">+212 6 12 34 56 78</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">Male</td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">A+</span>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">75</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">AB123456</td>
-                        <td class="px-6 py-4 text-sm text-neutral-900">Sarah El Fassi</td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">Critical</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center justify-center gap-2">
-                                <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
-                                <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">Edit</button>
-                                <button class="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded transition-all">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
-                    Sample Row 2
-                    <tr class="hover:bg-neutral-50 transition-colors">
-                        <td class="px-6 py-4 text-sm text-neutral-900">Fatima</td>
-                        <td class="px-6 py-4 text-sm text-neutral-900">El Amrani</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">+212 6 98 76 54 32</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">Female</td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">O-</span>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">62</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">CD789012</td>
-                        <td class="px-6 py-4 text-sm text-neutral-900">Karim Benjelloun</td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">Urgent</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center justify-center gap-2">
-                                <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
-                                <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">Edit</button>
-                                <button class="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded transition-all">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
-                    Sample Row 3
-                    <tr class="hover:bg-neutral-50 transition-colors">
-                        <td class="px-6 py-4 text-sm text-neutral-900">Youssef</td>
-                        <td class="px-6 py-4 text-sm text-neutral-900">Alaoui</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">+212 6 55 44 33 22</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">Male</td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">B+</span>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">82</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">EF345678</td>
-                        <td class="px-6 py-4 text-sm text-neutral-900">Laila Tazi</td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Normal</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center justify-center gap-2">
-                                <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
-                                <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">Edit</button>
-                                <button class="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded transition-all">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
-                    Sample Row 4
-                    <tr class="hover:bg-neutral-50 transition-colors">
-                        <td class="px-6 py-4 text-sm text-neutral-900">Samira</td>
-                        <td class="px-6 py-4 text-sm text-neutral-900">Idrissi</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">+212 6 11 22 33 44</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">Female</td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">AB+</span>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">68</td>
-                        <td class="px-6 py-4 text-sm text-neutral-600">GH901234</td>
-                        <td class="px-6 py-4 text-sm text-neutral-900">Omar Cherkaoui</td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">Critical</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center justify-center gap-2">
-                                <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
-                                <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">Edit</button>
-                                <button class="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded transition-all">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
+                    <c:forEach var="row" items="${donations}">
+                        <tr class="hover:bg-neutral-50 transition-colors">
+                            <!-- Donor info -->
+                            <td class="px-6 py-4 text-sm text-neutral-900"><c:out value="${row[0].name}"/></td>
+                            <td class="px-6 py-4 text-sm text-neutral-900"><c:out value="${row[0].lastname}"/></td>
+                            <td class="px-6 py-4 text-sm text-neutral-600"><c:out value="${row[0].phone}"/></td>
+                            <td class="px-6 py-4 text-sm text-neutral-600"><c:out value="${row[0].gender}"/></td>
+                            <td class="px-6 py-4">
+                         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                           <c:out value="${row[0].bloodtype}"/>
+                            </span>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-neutral-600"><c:out value="${row[0].weith}"/></td>
+                            <td class="px-6 py-4 text-sm text-neutral-600"><c:out value="${row[0].cin}"/></td>
+
+                            <!-- Associated Recipient info -->
+                            <td class="px-6 py-4 text-sm text-neutral-900">
+                                <c:out value="${row[1]} ${row[2]}"/>
+                            </td>
+
+                            <!-- Recipient blood type instead of urgency -->
+                            <td class="px-6 py-4">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                <c:out value="${row[3]}"/>
+            </span>
+                            </td>
+
+                            <!-- Actions -->
+                            <td class="px-6 py-4">
+                                <div class="flex items-center justify-center gap-2">
+                                    <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
+                                    <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">Edit</button>
+                                    <button class="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded transition-all">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
+
                 </table>
             </div>
         </div>

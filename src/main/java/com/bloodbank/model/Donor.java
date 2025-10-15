@@ -16,9 +16,13 @@ public class Donor {
     private String dateofbirth;
     private double weith;
     private String gender;
+
     @Enumerated(EnumType.STRING)
+
     @Column(name ="blood_type")
+
     private BloodType bloodtype;
+
     @Enumerated(EnumType.STRING)
     @Column(name ="status")
     private AvailabilityStatus status;
