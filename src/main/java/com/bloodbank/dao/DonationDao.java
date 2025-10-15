@@ -1,9 +1,15 @@
 package com.bloodbank.dao;
 
 import com.bloodbank.model.BloodDonations;
+import com.bloodbank.service.DonationService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import com.bloodbank.util.JPAUtil;
+import jakarta.persistence.TypedQuery;
+import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.List;
 
 
 public class DonationDao {
@@ -23,4 +29,23 @@ public class DonationDao {
         }
 
     }
+
+
+
+    public List<Object[]> getAllDonations() {
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            TypedQuery<Object[]> query = em.createQuery(
+                    "SELECT d, r.name, r.lastname, r.bloodType " +
+                            "FROM BloodDonations bd " +
+                            "JOIN bd.donor d " +
+                            "JOIN bd.recipient r",
+                    Object[].class
+            );
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
 }

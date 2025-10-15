@@ -1,5 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +15,12 @@
     </style>
 </head>
 <body class="font-sans bg-neutral-50 min-h-screen">
-
+Navigation
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
             <div class="flex items-center gap-3">
-                <img src="${pageContext.request.contextPath}/images/logo.webp" alt="LifeStream Logo" class="h-12 w-12 rounded-full object-cover border-2 border-neutral-300">
+                <img src="/placeholder.svg?height=50&width=50" alt="LifeStream Logo" class="h-12 w-12 rounded-full object-cover border-2 border-neutral-300">
                 <span class="text-2xl font-serif font-semibold text-neutral-900">LifeStream</span>
             </div>
             <div class="hidden md:flex items-center gap-8">
@@ -33,15 +34,16 @@
     </div>
 </nav>
 
+Main Content
 <main class="pt-32 pb-20 px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
-
+        Header
         <div class="mb-12">
             <h1 class="text-5xl md:text-6xl font-serif font-light text-neutral-900 mb-4">Donors Registry</h1>
             <p class="text-lg text-neutral-600 font-light max-w-2xl">Manage and view all registered blood donors</p>
         </div>
 
-
+        Table Container
         <div class="bg-white rounded-lg shadow-sm border border-neutral-200 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full">
@@ -54,11 +56,13 @@
                         <th class="px-6 py-4 text-left text-sm font-semibold">Blood Type</th>
                         <th class="px-6 py-4 text-left text-sm font-semibold">Weight (kg)</th>
                         <th class="px-6 py-4 text-left text-sm font-semibold">CIN</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold">Associated Receivers</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold">Urgency Level</th>
                         <th class="px-6 py-4 text-center text-sm font-semibold">Actions</th>
                     </tr>
                     </thead>
                     <tbody class="divide-y divide-neutral-200">
-
+                    Sample Row 1
                     <tr class="hover:bg-neutral-50 transition-colors">
                         <td class="px-6 py-4 text-sm text-neutral-900">Ahmed</td>
                         <td class="px-6 py-4 text-sm text-neutral-900">Benali</td>
@@ -69,6 +73,10 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-neutral-600">75</td>
                         <td class="px-6 py-4 text-sm text-neutral-600">AB123456</td>
+                        <td class="px-6 py-4 text-sm text-neutral-900">Sarah El Fassi</td>
+                        <td class="px-6 py-4">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">Critical</span>
+                        </td>
                         <td class="px-6 py-4">
                             <div class="flex items-center justify-center gap-2">
                                 <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
@@ -77,7 +85,7 @@
                             </div>
                         </td>
                     </tr>
-
+                    Sample Row 2
                     <tr class="hover:bg-neutral-50 transition-colors">
                         <td class="px-6 py-4 text-sm text-neutral-900">Fatima</td>
                         <td class="px-6 py-4 text-sm text-neutral-900">El Amrani</td>
@@ -88,6 +96,10 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-neutral-600">62</td>
                         <td class="px-6 py-4 text-sm text-neutral-600">CD789012</td>
+                        <td class="px-6 py-4 text-sm text-neutral-900">Karim Benjelloun</td>
+                        <td class="px-6 py-4">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">Urgent</span>
+                        </td>
                         <td class="px-6 py-4">
                             <div class="flex items-center justify-center gap-2">
                                 <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
@@ -96,7 +108,7 @@
                             </div>
                         </td>
                     </tr>
-
+                    Sample Row 3
                     <tr class="hover:bg-neutral-50 transition-colors">
                         <td class="px-6 py-4 text-sm text-neutral-900">Youssef</td>
                         <td class="px-6 py-4 text-sm text-neutral-900">Alaoui</td>
@@ -107,6 +119,10 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-neutral-600">82</td>
                         <td class="px-6 py-4 text-sm text-neutral-600">EF345678</td>
+                        <td class="px-6 py-4 text-sm text-neutral-900">Laila Tazi</td>
+                        <td class="px-6 py-4">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Normal</span>
+                        </td>
                         <td class="px-6 py-4">
                             <div class="flex items-center justify-center gap-2">
                                 <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
@@ -115,7 +131,7 @@
                             </div>
                         </td>
                     </tr>
-
+                    Sample Row 4
                     <tr class="hover:bg-neutral-50 transition-colors">
                         <td class="px-6 py-4 text-sm text-neutral-900">Samira</td>
                         <td class="px-6 py-4 text-sm text-neutral-900">Idrissi</td>
@@ -126,6 +142,10 @@
                         </td>
                         <td class="px-6 py-4 text-sm text-neutral-600">68</td>
                         <td class="px-6 py-4 text-sm text-neutral-600">GH901234</td>
+                        <td class="px-6 py-4 text-sm text-neutral-900">Omar Cherkaoui</td>
+                        <td class="px-6 py-4">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">Critical</span>
+                        </td>
                         <td class="px-6 py-4">
                             <div class="flex items-center justify-center gap-2">
                                 <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
@@ -142,4 +162,3 @@
 </main>
 </body>
 </html>
->
