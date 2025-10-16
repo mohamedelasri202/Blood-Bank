@@ -38,6 +38,7 @@
 
                     donationService.countDonationsByRecipientId(recipientId);
 
+
                     response.sendRedirect(request.getContextPath() + "/donation");
 
                 } catch (NumberFormatException e) {
