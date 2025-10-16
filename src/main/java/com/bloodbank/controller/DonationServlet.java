@@ -36,6 +36,8 @@
                     HttpSession session = request.getSession();
                     session.setAttribute("donorStatus", AvailabilityStatus.NOT_AVAILABLE);
 
+                    donationService.countDonationsByRecipientId(recipientId);
+
                     response.sendRedirect(request.getContextPath() + "/donation");
 
                 } catch (NumberFormatException e) {

@@ -41,5 +41,9 @@ public class DonationService {
 
     }
 
+    public long countDonationsByRecipientId(int recipientId) {
+        return  donationDao.countDonationsByRecipientId(recipientId);
+    }
+
 
 }

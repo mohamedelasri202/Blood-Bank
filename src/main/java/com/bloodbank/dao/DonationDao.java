@@ -1,7 +1,9 @@
 package com.bloodbank.dao;
 
 import com.bloodbank.model.BloodDonations;
+import com.bloodbank.model.Recipient;
 import com.bloodbank.service.DonationService;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import com.bloodbank.util.JPAUtil;
@@ -44,6 +46,24 @@ public class DonationDao {
             em.close();
         }
     }
+
+
+    public long countDonationsByRecipientId(int recipientId) {
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            TypedQuery<Long> query = em.createQuery(
+                    "SELECT COUNT(d) FROM BloodDonations d WHERE d.recipient.id = :recipientId",
+                    Long.class
+            );
+            query.setParameter("recipientId", recipientId);
+            long count = query.getSingleResult();
+            return count;
+        } finally {
+            em.close();
+        }
+    }
+
+
 
 
 

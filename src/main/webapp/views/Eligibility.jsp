@@ -17,9 +17,9 @@
 <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
-            Logo
+
             <div class="flex items-center space-x-3">
-                <img src="/${pageContext.request.contextPath}/images/logo.webp" alt="LifeStream Logo" class="w-12 h-12 rounded-full object-cover border-2 border-red-600/20">
+                <img src="${pageContext.request.contextPath}/images/logo.webp" alt="LifeStream Logo" class="h-12 w-12 rounded-full object-cover border-2 border-rose-200">
                 <span class="font-serif text-2xl font-semibold text-slate-900">LifeStream</span>
             </div>
 
