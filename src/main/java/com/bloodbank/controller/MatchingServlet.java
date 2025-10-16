@@ -1,5 +1,6 @@
 package com.bloodbank.controller;
 
+import com.bloodbank.model.AvailabilityStatus;
 import com.bloodbank.model.BloodType;
 import com.bloodbank.model.Recipient;
 import com.bloodbank.service.MatchingService;
@@ -31,6 +32,7 @@ public class MatchingServlet extends HttpServlet {
 
         Integer donorId = (Integer) session.getAttribute("donorId");
         BloodType donorBloodType = (BloodType) session.getAttribute("donorBloodtype");
+
 
 
         if (donorId == null || donorBloodType == null) {

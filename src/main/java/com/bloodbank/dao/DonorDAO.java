@@ -1,14 +1,10 @@
 package com.bloodbank.dao;
 
+import com.bloodbank.model.AvailabilityStatus;
 import com.bloodbank.model.Donor;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import com.bloodbank.util.JPAUtil;
-
-import java.util.List;
 
 public class DonorDAO {
 
@@ -45,6 +41,29 @@ public class DonorDAO {
             em.close();
         }
         return donor;
+    }
+
+    public void  updateDonorStatus(int donorId, AvailabilityStatus newStatus) {
+        EntityManager em = JPAUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try{
+            tx.begin();
+            Donor donor = em.find(Donor.class, donorId);
+            if(donor!=null){
+                donor.setStatus(newStatus);
+            }
+            tx.commit();
+
+        }catch (Exception e){
+            if(tx!=null && tx.isActive()){
+                tx.rollback();
+            }
+
+        }finally{
+            em.close();
+        }
+
+
     }
 
 

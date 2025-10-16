@@ -1,12 +1,15 @@
         package com.bloodbank.controller;
 
+        import com.bloodbank.model.AvailabilityStatus;
         import com.bloodbank.model.BloodDonations;
         import com.bloodbank.model.Recipient;
         import com.bloodbank.service.DonationService;
+        import com.bloodbank.service.DonorService;
         import jakarta.servlet.ServletException;
         import jakarta.servlet.http.HttpServlet;
         import jakarta.servlet.http.HttpServletRequest;
         import jakarta.servlet.http.HttpServletResponse;
+        import jakarta.servlet.http.HttpSession;
 
         import java.io.IOException;
         import java.util.List;
@@ -23,10 +26,15 @@
 
 
                     DonationService donationService = new DonationService();
+                    DonorService donorService = new DonorService();
 
 
                     donationService.addDonation(donorId, recipientId);
 
+                    donorService.updateDonorStatus(donorId, AvailabilityStatus.NOT_AVAILABLE);
+
+                    HttpSession session = request.getSession();
+                    session.setAttribute("donorStatus", AvailabilityStatus.NOT_AVAILABLE);
 
                     response.sendRedirect(request.getContextPath() + "/donation");
 

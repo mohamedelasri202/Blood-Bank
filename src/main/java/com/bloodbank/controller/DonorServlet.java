@@ -75,6 +75,10 @@ public class DonorServlet extends HttpServlet {
 
             session.setAttribute("donorBloodtype", bloodtype);
             session.setAttribute("donorId", savedDonor.getId());
+            session.setAttribute("donorStatus", savedDonor.getStatus());
+
+
+
 
             response.sendRedirect(request.getContextPath() + "/matching");
 

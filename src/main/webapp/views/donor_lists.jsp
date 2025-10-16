@@ -1,6 +1,6 @@
-
 <%@ page import="com.bloodbank.model.BloodType" %>
 <%@ page import="com.bloodbank.model.AvailabilityStatusRecipient" %>
+<%@ page import="com.bloodbank.model.AvailabilityStatus" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -20,14 +20,16 @@
 </head>
 <body class="font-sans bg-gradient-to-br from-slate-50 to-stone-100 min-h-screen">
 
-<%-- Get donor blood type from session --%>
+<%-- Get donor info from session --%>
 <%
-    BloodType bloodtype = (BloodType)session.getAttribute("donorBloodtype");
-
+    BloodType bloodtype = (BloodType) session.getAttribute("donorBloodtype");
+    com.bloodbank.model.AvailabilityStatus donorStatus =
+            (com.bloodbank.model.AvailabilityStatus) session.getAttribute("donorStatus");
 %>
 
-
-
+<p class="text-center mt-4 text-stone-700">
+    Donor Status: <strong><%= donorStatus != null ? donorStatus.toString() : "Not available" %></strong>
+</p>
 
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -81,7 +83,8 @@
         <c:if test="${not empty receivers}">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <c:forEach var="r" items="${receivers}">
-                    <%-- Compute urgency class --%>
+
+                    <!-- Urgency color -->
                     <c:choose>
                         <c:when test="${r.urgency.name() == 'CRITICAL'}">
                             <c:set var="urgencyClass" value="bg-red-100 text-red-700" />
@@ -94,7 +97,7 @@
                         </c:otherwise>
                     </c:choose>
 
-                    <%-- Compute availability class --%>
+                    <!-- Availability color -->
                     <c:choose>
                         <c:when test="${r.availability.name() == 'SATISFIED'}">
                             <c:set var="availabilityClass" value="bg-emerald-100 text-emerald-700" />
@@ -110,11 +113,9 @@
                                 <span class="px-4 py-1.5 ${urgencyClass} rounded-full text-xs font-semibold uppercase tracking-wide">
                                         ${r.urgency}
                                 </span>
-
                                 <span class="px-3 py-1 ${availabilityClass} rounded-full text-xs font-semibold">
                                         ${r.availability}
                                 </span>
-
                                 <span class="px-4 py-1.5 bg-rose-600 text-white rounded-full text-sm font-semibold">
                                         ${r.bloodType}
                                 </span>
@@ -138,17 +139,35 @@
                                         Already Satisfied
                                     </button>
                                 </c:when>
+
                                 <c:otherwise>
-
-
+                                    <c:set var="donorStatus" value="${sessionScope.donorStatus}" />
                                     <form action="${pageContext.request.contextPath}/donate" method="post">
                                         <input type="hidden" name="donor_id" value="${donorId}">
                                         <input type="hidden" name="receiver_id" value="${r.id}">
-                                        <button  type="submit" class="w-full py-3 bg-rose-600 text-white rounded-full hover:bg-rose-700 transition-all font-medium tracking-wide shadow-md hover:shadow-lg">
-                                            Donate Now
-                                        </button>
-                                    </form>
 
+                                        <c:choose>
+                                            <c:when test="${donorStatus == 'AVAILABLE'}">
+                                                <button
+                                                        type="submit"
+                                                        class="w-full py-3 bg-rose-600 text-white rounded-full hover:bg-rose-700 transition-all font-medium tracking-wide shadow-md hover:shadow-lg">
+                                                    Donate Now
+                                                </button>
+                                            </c:when>
+
+                                            <c:otherwise>
+                                                <button
+                                                        type="button"
+                                                        disabled
+                                                        class="w-full py-3 bg-stone-300 text-stone-500 rounded-full cursor-not-allowed font-medium tracking-wide opacity-70">
+                                                    Donate Now
+                                                </button>
+                                                <p class="text-red-600 mt-2 font-medium">
+                                                    You cannot donate again. You have already donated.
+                                                </p>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </form>
                                 </c:otherwise>
                             </c:choose>
                         </div>

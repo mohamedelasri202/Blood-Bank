@@ -29,13 +29,10 @@ public class Recipient {
     @Column(name = "status")
     private AvailabilityStatusRecipient availability;
 
-    // ✅ One recipient can receive many donations
+
     @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BloodDonations> donations;
 
-    // ✅ One recipient can have multiple transfusions
-    @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BloodTransfusion> transfusions;
 
     // ---------- Getters and Setters ----------
 
@@ -127,11 +124,5 @@ public class Recipient {
         this.donations = donations;
     }
 
-    public List<BloodTransfusion> getTransfusions() {
-        return transfusions;
-    }
 
-    public void setTransfusions(List<BloodTransfusion> transfusions) {
-        this.transfusions = transfusions;
-    }
 }

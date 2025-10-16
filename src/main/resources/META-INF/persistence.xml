@@ -10,7 +10,7 @@
 
 
         <class>com.bloodbank.model.BloodDonations</class>
-        <class>com.bloodbank.model.BloodTransfusion</class>
+
         <class>com.bloodbank.model.Donor</class>
         <class>com.bloodbank.model.Recipient</class>
 

@@ -1,6 +1,7 @@
 package com.bloodbank.service;
 
 import com.bloodbank.dao.DonationDao;
+import com.bloodbank.dao.DonorDAO;
 import com.bloodbank.model.BloodDonations;
 import com.bloodbank.model.Donor;
 import com.bloodbank.model.Recipient;
