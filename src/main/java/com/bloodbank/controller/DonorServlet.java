@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
@@ -61,6 +62,12 @@ public class DonorServlet extends HttpServlet {
             donor.setWeith(weight);
             donor.setGender(gender);
             donor.setBloodtype(bloodType);
+
+            if (donor.getWeith() < 50) {
+
+                response.sendRedirect(request.getContextPath() + "/views/Eligibility.jsp");
+                return;
+            }
 
 
             String statusParam = request.getParameter("status");
