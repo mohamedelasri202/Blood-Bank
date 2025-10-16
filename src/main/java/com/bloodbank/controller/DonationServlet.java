@@ -1,10 +1,12 @@
         package com.bloodbank.controller;
 
         import com.bloodbank.model.AvailabilityStatus;
+        import com.bloodbank.model.AvailabilityStatusRecipient;
         import com.bloodbank.model.BloodDonations;
         import com.bloodbank.model.Recipient;
         import com.bloodbank.service.DonationService;
         import com.bloodbank.service.DonorService;
+        import com.bloodbank.service.ReceiverService;
         import jakarta.servlet.ServletException;
         import jakarta.servlet.http.HttpServlet;
         import jakarta.servlet.http.HttpServletRequest;
@@ -16,6 +18,7 @@
 
         public class DonationServlet extends HttpServlet {
 
+
             @Override
             protected void doPost(HttpServletRequest request, HttpServletResponse response)
                     throws ServletException, IOException {
@@ -24,19 +27,34 @@
                     int donorId = Integer.parseInt(request.getParameter("donor_id"));
                     int recipientId = Integer.parseInt(request.getParameter("receiver_id"));
 
-
                     DonationService donationService = new DonationService();
                     DonorService donorService = new DonorService();
-
+                    ReceiverService recipientService = new ReceiverService();
 
                     donationService.addDonation(donorId, recipientId);
 
-                    donorService.updateDonorStatus(donorId, AvailabilityStatus.NOT_AVAILABLE);
 
+                    donorService.updateDonorStatus(donorId, AvailabilityStatus.NOT_AVAILABLE);
                     HttpSession session = request.getSession();
                     session.setAttribute("donorStatus", AvailabilityStatus.NOT_AVAILABLE);
 
-                    donationService.countDonationsByRecipientId(recipientId);
+
+                    long count = donationService.countDonationsByRecipientId(recipientId);
+
+
+                    Recipient recipient = recipientService.getRecipientById(recipientId);
+
+
+                    int requiredDonations = switch (recipient.getUrgency()) {
+                        case CRITICAL -> 4;
+                        case URGENT   -> 3;
+                        case NORMAL   -> 1;
+                    };
+
+
+                    if (count >= requiredDonations) {
+                        recipientService.updateRecipientStatus(recipientId, AvailabilityStatusRecipient.SATISFIED);
+                    }
 
 
                     response.sendRedirect(request.getContextPath() + "/donation");
@@ -46,6 +64,7 @@
                     response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid donor or recipient ID");
                 }
             }
+
 
 
 
