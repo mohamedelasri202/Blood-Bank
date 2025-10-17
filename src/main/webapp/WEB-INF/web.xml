@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+<!--    crud for the donor -->
+
+<servlet>
+    <servlet-name>donorServlet</servlet-name>
+    <servlet-class>com.bloodbank.controller.DonorServlet</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>donorServlet</servlet-name>
+        <url-pattern>/addDonor</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteServlet</servlet-name>
+        <servlet-class>com.bloodbank.controller.DonorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteServlet</servlet-name>
+        <url-pattern>/donor</url-pattern>
+    </servlet-mapping>
+
+
+<!--crud for the receiver-->
+    <servlet>
+        <servlet-name>receiverservlet</servlet-name>
+        <servlet-class>com.bloodbank.controller.ReceiverServlet</servlet-class>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>receiverservlet</servlet-name>
+        <url-pattern>/addreceiver</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MatchingServlet</servlet-name>
+        <servlet-class>com.bloodbank.controller.MatchingServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MatchingServlet</servlet-name>
+        <url-pattern>/matching</url-pattern>
+    </servlet-mapping>
+<!--///////////////////////////////-->
+    <servlet>
+        <servlet-name>DonationServlet</servlet-name>
+        <servlet-class>com.bloodbank.controller.DonationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DonationServlet</servlet-name>
+        <url-pattern>/donation</url-pattern>
+    </servlet-mapping>
+
+<!--    mapping the navbar -->
+
+    <servlet>
+        <servlet-name>DonationListServlet</servlet-name>
+        <servlet-class>com.bloodbank.controller.DonationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DonationListServlet</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+
+
+
+    <!-- dontions servlet -->
+    <servlet>
+        <servlet-name>Donations</servlet-name>
+        <servlet-class>com.bloodbank.controller.DonationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Donations</servlet-name>
+        <url-pattern>/donate</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
