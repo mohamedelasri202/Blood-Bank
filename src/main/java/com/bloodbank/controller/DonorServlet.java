@@ -38,11 +38,10 @@ public class DonorServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-       throws ServletException, IOException {
+            throws ServletException, IOException {
         HttpSession session = request.getSession();
 
         try {
-
             String name = request.getParameter("name");
             String lastname = request.getParameter("lastname");
             String phone = request.getParameter("phone");
@@ -51,6 +50,9 @@ public class DonorServlet extends HttpServlet {
             double weight = Double.parseDouble(request.getParameter("weight"));
             String gender = request.getParameter("gender");
             BloodType bloodType = BloodType.valueOf(request.getParameter("bloodtype"));
+
+
+            String medicalCondition = request.getParameter("medicalConditions"); // "yes" or "no"
 
 
             Donor donor = new Donor();
@@ -63,32 +65,26 @@ public class DonorServlet extends HttpServlet {
             donor.setGender(gender);
             donor.setBloodtype(bloodType);
 
-            if (donor.getWeith() < 50) {
 
+            if (weight < 50 || "yes".equalsIgnoreCase(medicalCondition)) {
                 response.sendRedirect(request.getContextPath() + "/views/Eligibility.jsp");
                 return;
             }
-
 
             String statusParam = request.getParameter("status");
             if (statusParam != null && !statusParam.isEmpty()) {
                 donor.setStatus(AvailabilityStatus.valueOf(statusParam));
             }
 
+            Donor savedDonor = donorservice.addDonor(donor);
 
 
-           Donor savedDonor= donorservice.addDonor(donor);
-            BloodType bloodtype = savedDonor.getBloodtype();
-
-            session.setAttribute("donorBloodtype", bloodtype);
+            session.setAttribute("donorBloodtype", savedDonor.getBloodtype());
             session.setAttribute("donorId", savedDonor.getId());
             session.setAttribute("donorStatus", savedDonor.getStatus());
 
 
-
-
             response.sendRedirect(request.getContextPath() + "/matching");
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,6 +92,7 @@ public class DonorServlet extends HttpServlet {
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
+
 
 
 

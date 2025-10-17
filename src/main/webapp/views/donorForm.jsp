@@ -118,8 +118,23 @@
                     </select>
                 </div>
             </div>
+            <div class="mt-8 p-6 bg-neutral-50 rounded-lg border border-neutral-200">
+                <label class="block text-sm font-medium text-neutral-900 mb-4">Do you have any of the following medical conditions?</label>
+                <p class="text-xs text-neutral-600 mb-4">Hepatitis B/C, HIV, Insulin-dependent diabetes, Pregnancy, Breastfeeding</p>
 
-
+                <div class="flex gap-6">
+                    <div class="flex items-center">
+                        <input type="radio" id="medical_no" name="medicalConditions" value="no" required
+                               class="w-4 h-4 text-red-900 border-neutral-300 focus:ring-2 focus:ring-red-900">
+                        <label for="medical_no" class="ml-3 text-sm font-medium text-neutral-900 cursor-pointer">No</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="medical_yes" name="medicalConditions" value="yes" required
+                               class="w-4 h-4 text-red-900 border-neutral-300 focus:ring-2 focus:ring-red-900">
+                        <label for="medical_yes" class="ml-3 text-sm font-medium text-neutral-900 cursor-pointer">Yes</label>
+                    </div>
+                </div>
+            </div>
             <div class="mt-8">
                 <button type="submit"
                         class="w-full px-8 py-4 bg-red-900 text-white text-base font-medium hover:bg-red-800 transition-colors rounded-md">
