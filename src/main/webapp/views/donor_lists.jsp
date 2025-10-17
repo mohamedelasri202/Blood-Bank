@@ -36,11 +36,11 @@
                 <img src="${pageContext.request.contextPath}/images/logo.webp" alt="LifeStream Logo" class="h-12 w-12 rounded-full object-cover border-2 border-rose-200">
             </div>
             <div class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="text-stone-600 hover:text-rose-600 transition-colors text-sm font-medium tracking-wide">Home</a>
-                <a href="donors-list.html" class="text-stone-600 hover:text-rose-600 transition-colors text-sm font-medium tracking-wide">Donors</a>
-                <a href="recipients-list.html" class="text-stone-600 hover:text-rose-600 transition-colors text-sm font-medium tracking-wide">Recipients</a>
-                <a href="donor-form.html" class="px-6 py-2.5 bg-rose-600 text-white rounded-full hover:bg-rose-700 transition-all text-sm font-medium tracking-wide">Donate Now</a>
-                <a href="receiver-form.html" class="px-6 py-2.5 bg-stone-800 text-white rounded-full hover:bg-stone-900 transition-all text-sm font-medium tracking-wide">Request Blood</a>
+                <a href="${pageContext.request.contextPath}/" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Home</a>
+                <a href="${pageContext.request.contextPath}/list?view=donors" class="text-neutral-900 font-semibold text-sm">Donors</a>
+                <a href="${pageContext.request.contextPath}/list?view=receivers" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Recipients</a>
+                <a href="${pageContext.request.contextPath}/views/donorForm.jsp" class="px-6 py-2.5 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-all">Donate Now</a>
+                <a href="${pageContext.request.contextPath}/views/receiverForm.jsp" class="px-6 py-2.5 border-2 border-neutral-900 text-neutral-900 text-sm font-medium hover:bg-neutral-900 hover:text-white transition-all">Request Blood</a>
             </div>
         </div>
     </div>
