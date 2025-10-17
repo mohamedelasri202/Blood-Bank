@@ -66,6 +66,24 @@ public class DonorDAO {
 
     }
 
+    public void deleteDonor(int id){
+        EntityManager em = JPAUtil.getEntityManager();
+        EntityTransaction tx =em.getTransaction();
+        try{
+            tx.begin();
+            Donor donor = em.find(Donor.class, id);
+            if(donor!=null){
+                em.remove(donor);
+            }
+        }catch (Exception e){
+            if(tx!=null && tx.isActive()){
+                tx.rollback();
+            }
+        }finally{
+            em.close();
+        }
+    }
+
 
 
 

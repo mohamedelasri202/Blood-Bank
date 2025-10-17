@@ -15,6 +15,7 @@ import java.util.List;
 
 
 public class DonationDao {
+   
 
     public void saveDonation(BloodDonations donation){
         EntityManager em = JPAUtil.getEntityManager();
@@ -63,7 +64,57 @@ public class DonationDao {
         }
     }
 
+    public void deleteDonation(int donationId){
+        EntityManager em =JPAUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try{
+           tx.begin();
+            BloodDonations donations = em.find(BloodDonations.class, donationId);
+            if (donations!=null){
+                em.remove(donations);
+                tx.commit();
+            }
+           
+        }catch(Exception e){
+            tx.rollback();
+        }finally{
+            em.close();
+        }
 
+
+    }
+
+    public BloodDonations getDonationById(int donationsId){
+        EntityManager em = JPAUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+         BloodDonations donation = null;
+        try{
+            tx.begin();
+            donation = em.find(BloodDonations.class, donationsId);
+            return donation;
+        }
+        finally {
+            em.close();
+        }
+
+    }
+    public BloodDonations updateDonation(BloodDonations donation){
+        EntityManager em = JPAUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        BloodDonations donations = null;
+        try{
+            tx.begin();
+            donations = em.find(BloodDonations.class, donation.getId());
+            em.merge(donations);
+            tx.commit();
+            return donations;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }finally {
+            em.close();
+        }
+    }
 
 
 

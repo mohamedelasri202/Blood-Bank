@@ -27,4 +27,7 @@ public class DonorService {
     public  void updateDonorStatus(int  donorId , AvailabilityStatus newStatus) {
          dao.updateDonorStatus(donorId ,newStatus);
     }
+    public void deleteDonor(int id){
+        dao.deleteDonor(id);
+    }
 }

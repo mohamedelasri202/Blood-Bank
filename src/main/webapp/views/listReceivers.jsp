@@ -90,9 +90,13 @@
 
                         <td class="px-6 py-4">
                             <div class="flex items-center justify-center gap-2">
-                                <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">View</button>
                                 <button class="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded transition-all">Edit</button>
-                                <button class="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded transition-all">Delete</button>
+                                <form action="${pageContext.request.contextPath}/donation" method="post">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="donation_id" value="${row[2].id}">
+                                    <button class="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded transition-all" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
+
                             </div>
                         </td>
                     </tr>

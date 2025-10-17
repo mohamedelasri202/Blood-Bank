@@ -45,5 +45,17 @@ public class DonationService {
         return  donationDao.countDonationsByRecipientId(recipientId);
     }
 
+    public void deleteDonation(int donationId) {
+        donationDao.deleteDonation(donationId);
+    }
+
+    public  BloodDonations getDonationById(int donationId) {
+       return donationDao.getDonationById(donationId);
+    }
+
+//    public BloodDonations getDonationByDonationId(BloodDonations donationId) {
+//      return   donationDao.updateDonation(donationId);
+//    }
+
 
 }
