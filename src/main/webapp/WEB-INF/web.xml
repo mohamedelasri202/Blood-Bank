@@ -57,8 +57,21 @@
         <url-pattern>/donation</url-pattern>
     </servlet-mapping>
 
+<!--    mapping the navbar -->
 
-<!-- dontions servlet -->
+    <servlet>
+        <servlet-name>DonationListServlet</servlet-name>
+        <servlet-class>com.bloodbank.controller.DonationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DonationListServlet</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+
+
+
+    <!-- dontions servlet -->
     <servlet>
         <servlet-name>Donations</servlet-name>
         <servlet-class>com.bloodbank.controller.DonationServlet</servlet-class>

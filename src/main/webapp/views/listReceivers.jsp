@@ -27,15 +27,15 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
             <div class="flex items-center gap-3">
-                <img src="${pageContex.request.contextPath}/images/logo.webp?height=50&width=50" alt="LifeStream Logo" class="h-12 w-12 rounded-full object-cover border-2 border-neutral-300">
+                <img src="${pageContext.request.contextPath}/images/logo.webp?height=50&width=50" alt="LifeStream Logo" class="h-12 w-12 rounded-full object-cover border-2 border-neutral-300">
                 <span class="text-2xl font-serif font-semibold text-neutral-900">LifeStream</span>
             </div>
             <div class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Home</a>
-                <a href="donors-list.html" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Donors</a>
-                <a href="recipients-list.html" class="text-neutral-900 font-semibold text-sm">Recipients</a>
-                <a href="donor-form.html" class="px-6 py-2.5 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-all">Donate Now</a>
-                <a href="receiver-form.html" class="px-6 py-2.5 border-2 border-neutral-900 text-neutral-900 text-sm font-medium hover:bg-neutral-900 hover:text-white transition-all">Request Blood</a>
+                <a href="${pageContext.request.contextPath}/" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Home</a>
+                <a href="${pageContext.request.contextPath}/list?view=donors" class="text-neutral-900 font-semibold text-sm">Donors</a>
+                <a href="${pageContext.request.contextPath}/views/listReceivers.jsp" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Recipients</a>
+                <a href="${pageContext.request.contextPath}/views/donorForm.jsp" class="px-6 py-2.5 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-all">Donate Now</a>
+                <a href="${pageContext.request.contextPath}/views/receiverForm.jsp" class="px-6 py-2.5 border-2 border-neutral-900 text-neutral-900 text-sm font-medium hover:bg-neutral-900 hover:text-white transition-all">Request Blood</a>
             </div>
         </div>
     </div>

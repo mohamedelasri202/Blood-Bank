@@ -60,21 +60,21 @@ public class DonationServlet extends HttpServlet {
                         .filter(row -> row[0] != null)
                         .toList();
                 req.setAttribute("donations", donorList);
-                req.getRequestDispatcher("views/listDonors.jsp").forward(req, res);
+                req.getRequestDispatcher("/views/listDonors.jsp").forward(req, res);
 
             } else if (view.equals("receivers")) {
                 List<Object[]> receiverList = allDetails.stream()
                         .filter(row -> row[1] != null)
                         .toList();
                 req.setAttribute("donations", receiverList);
-                req.getRequestDispatcher("views/listReceivers.jsp").forward(req, res);
+                req.getRequestDispatcher("/views/listReceivers.jsp").forward(req, res);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            res.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error loading donations");
         }
     }
-
     private void addDonation(HttpServletRequest request, HttpServletResponse response) throws Exception {
         int donorId = Integer.parseInt(request.getParameter("donor_id"));
         int recipientId = Integer.parseInt(request.getParameter("receiver_id"));
