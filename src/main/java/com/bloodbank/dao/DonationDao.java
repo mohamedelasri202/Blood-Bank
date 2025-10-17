@@ -8,14 +8,13 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import com.bloodbank.util.JPAUtil;
 import jakarta.persistence.TypedQuery;
-import org.junit.Test;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 import java.util.List;
 
 
 public class DonationDao {
-   
+
 
     public void saveDonation(BloodDonations donation){
         EntityManager em = JPAUtil.getEntityManager();
@@ -74,7 +73,7 @@ public class DonationDao {
                 em.remove(donations);
                 tx.commit();
             }
-           
+
         }catch(Exception e){
             tx.rollback();
         }finally{

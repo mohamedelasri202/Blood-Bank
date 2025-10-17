@@ -14,6 +14,10 @@ public class DonorService {
         this.dao = new DonorDAO();
     }
 
+    public DonorService(DonorDAO dao) {
+        this.dao = dao;
+    }
+
 
     public Donor addDonor(Donor donor) {
         dao.savedonor(donor);
