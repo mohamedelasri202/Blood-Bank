@@ -27,9 +27,7 @@
             (com.bloodbank.model.AvailabilityStatus) session.getAttribute("donorStatus");
 %>
 
-<p class="text-center mt-4 text-stone-700">
-    Donor Status: <strong><%= donorStatus != null ? donorStatus.toString() : "Not available" %></strong>
-</p>
+
 
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">

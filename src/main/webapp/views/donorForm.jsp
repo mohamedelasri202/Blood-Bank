@@ -24,11 +24,11 @@
 
 
             <div class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Home</a>
+                <a href="" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Home</a>
                 <a href="#" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">About</a>
                 <a href="#" class="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-medium">Contact</a>
-                <a href="donor-form.html" class="px-6 py-2.5 bg-red-900 text-white text-sm font-medium hover:bg-red-800 transition-colors">Donate Now</a>
-                <a href="receiver-form.html" class="px-6 py-2.5 border-2 border-red-900 text-red-900 text-sm font-medium hover:bg-red-900 hover:text-white transition-colors">Request Blood</a>
+
+                <a href="receiverForm.jsp" class="px-6 py-2.5 border-2 border-red-900 text-red-900 text-sm font-medium hover:bg-red-900 hover:text-white transition-colors">Request Blood</a>
             </div>
         </div>
     </div>
