@@ -32,7 +32,9 @@ public class ReceiverServlet extends HttpServlet {
             String dateofbirth =req.getParameter("date_of_birth");
             String gender = req.getParameter("gender");
             BloodType bloodtype = BloodType.valueOf(req.getParameter("bloodtype"));
-            String emergencystatus =req.getParameter("emergencystatus");
+//            String emergencystatus =req.getParameter("emergencystatus");
+
+            UrgencyLevel urgencylevel = UrgencyLevel.valueOf(req.getParameter("urgency"));
 
             Recipient recipient = new Recipient();
             recipient.setName(name);
@@ -42,7 +44,7 @@ public class ReceiverServlet extends HttpServlet {
             recipient.setGender(gender);
             recipient.setBloodType(bloodtype);
             recipient.setDateOfBirth(dateofbirth);
-            recipient.setUrgency(UrgencyLevel.NORMAL);
+            recipient.setUrgency(urgencylevel);
             recipient.setAvailability(AvailabilityStatusRecipient.ON_HOLD);
         receiverService.addRecipient( recipient);
        resp.sendRedirect(req.getContextPath() + "/donation?view=receivers");

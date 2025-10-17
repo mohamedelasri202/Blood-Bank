@@ -1,42 +1,42 @@
-        package com.bloodbank.controller;
+  package com.bloodbank.controller;
 
-        import com.bloodbank.model.AvailabilityStatus;
-        import com.bloodbank.model.AvailabilityStatusRecipient;
-        import com.bloodbank.model.BloodDonations;
-        import com.bloodbank.model.Recipient;
-        import com.bloodbank.service.DonationService;
-        import com.bloodbank.service.DonorService;
-        import com.bloodbank.service.ReceiverService;
-        import jakarta.servlet.ServletException;
-        import jakarta.servlet.http.HttpServlet;
-        import jakarta.servlet.http.HttpServletRequest;
-        import jakarta.servlet.http.HttpServletResponse;
-        import jakarta.servlet.http.HttpSession;
+  import com.bloodbank.model.AvailabilityStatus;
+  import com.bloodbank.model.AvailabilityStatusRecipient;
+  import com.bloodbank.model.BloodDonations;
+  import com.bloodbank.model.Recipient;
+  import com.bloodbank.service.DonationService;
+  import com.bloodbank.service.DonorService;
+  import com.bloodbank.service.ReceiverService;
+  import jakarta.servlet.ServletException;
+  import jakarta.servlet.http.HttpServlet;
+  import jakarta.servlet.http.HttpServletRequest;
+  import jakarta.servlet.http.HttpServletResponse;
+  import jakarta.servlet.http.HttpSession;
 
-        import java.io.IOException;
-        import java.util.List;
+  import java.io.IOException;
+  import java.util.List;
 
-        public class DonationServlet extends HttpServlet {
+  public class DonationServlet extends HttpServlet {
 
 
-            @Override
-            protected void doPost(HttpServletRequest request, HttpServletResponse response)
+ @Override
+ protected void doPost(HttpServletRequest request, HttpServletResponse response)
                     throws ServletException, IOException {
 
                 try {
-                    int donorId = Integer.parseInt(request.getParameter("donor_id"));
-                    int recipientId = Integer.parseInt(request.getParameter("receiver_id"));
+ int donorId = Integer.parseInt(request.getParameter("donor_id"));
+ int recipientId = Integer.parseInt(request.getParameter("receiver_id"));
 
-                    DonationService donationService = new DonationService();
-                    DonorService donorService = new DonorService();
-                    ReceiverService recipientService = new ReceiverService();
+   DonationService donationService = new DonationService();
+    DonorService donorService = new DonorService();
+    ReceiverService recipientService = new ReceiverService();
 
-                    donationService.addDonation(donorId, recipientId);
+    donationService.addDonation(donorId, recipientId);
 
 
-                    donorService.updateDonorStatus(donorId, AvailabilityStatus.NOT_AVAILABLE);
-                    HttpSession session = request.getSession();
-                    session.setAttribute("donorStatus", AvailabilityStatus.NOT_AVAILABLE);
+     donorService.updateDonorStatus(donorId, AvailabilityStatus.NOT_AVAILABLE);
+        HttpSession session = request.getSession();
+         session.setAttribute("donorStatus", AvailabilityStatus.NOT_AVAILABLE);
 
 
                     long count = donationService.countDonationsByRecipientId(recipientId);
@@ -66,11 +66,6 @@
             }
 
 
-
-
-
-
-
             @Override
             public void doGet(HttpServletRequest req, HttpServletResponse res)
                     throws ServletException, IOException {
@@ -85,7 +80,7 @@
                     if (view == null) view = "donors";
 
                     if (view.equals("donors")) {
-                        // Filter or process data for donors view
+
                         List<Object[]> donorList = allDetails.stream()
                                 .filter(row -> row[0] != null)
                                 .toList();
